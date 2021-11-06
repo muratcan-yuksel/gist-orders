@@ -18,7 +18,13 @@ export default {
     orders: db.collection("orders"),
   },
   mounted() {
-    // console.log(this.orders);
+    db.collection("orders")
+      .get()
+      .then((querySnapshot) => {
+        const orders = querySnapshot.docs.map((doc) => doc.data());
+        // do something with orders
+        console.log(orders);
+      });
   },
 };
 </script>
