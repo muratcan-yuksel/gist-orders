@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <h1>Gist orders</h1>
-    <p>{{ orders }}</p>
+    <!-- <p>{{ orders }}</p> -->
+    <div v-for="order in orders" :key="order._uid">
+      <p>name : {{ order.name }} - id : {{ order.id }}</p>
+    </div>
   </div>
 </template>
 
@@ -28,7 +31,7 @@ export default {
     );
     db.collection("orders").doc("12").set({ name: "namesdf" });
     // db.collection("orders").doc("12").delete();
-    // console.log("This component's unique id is: " + this.uid);
+    console.log("This component's unique id is: " + this.uid);
   },
 };
 </script>
