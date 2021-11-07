@@ -36,7 +36,7 @@ export default {
     };
   },
   firestore: {
-    orders: db.collection("orders").orderBy("siparişTarihi", "desc"),
+    orders: db.collection("orders").orderBy("timeStamp", "asc"),
   },
   mounted() {
     // db.collection("orders").doc("12").set({ name: "namesdf" });

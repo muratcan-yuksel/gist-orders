@@ -94,6 +94,7 @@ export default {
           ürünAdedi: this.adet,
           müşteriNotu: this.not,
           siparişTarihi: new Date().toLocaleString(),
+          timeStamp: Date.now(),
         });
         this.display = false;
       } else {
