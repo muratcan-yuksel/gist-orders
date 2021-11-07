@@ -8,6 +8,7 @@
         <p>Ürün Adı: {{ order.ürünAdı }}</p>
         <p>Boyut: {{ order.boyut }}</p>
         <p>Kişiselleştirme: {{ order.kişiselleştirme }}</p>
+        <p>Renk: {{ order.renk }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
