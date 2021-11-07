@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Login page</h1>
     <div>
       <form @submit.prevent="login">
-        <h2>Login</h2>
+        <h2>Giriş yap</h2>
         <input type="email" placeholder="Email address..." v-model="email" />
         <input type="password" placeholder="password..." v-model="password" />
         <button type="submit">Login</button>

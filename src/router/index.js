@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
     if (firebase.auth().currentUser) {
       next();
     } else {
-      alert("You must be logged in to see this page");
+      alert("Bu sayfayı görebilmek için admin olarak giriş yapmalısın.");
       next({
         path: "/",
       });
