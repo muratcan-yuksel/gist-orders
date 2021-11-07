@@ -6,11 +6,11 @@
       <div class="order" v-for="(order, index) in orders" :key="index">
         <p>Mağaza adı : {{ order.mağazaAdı }}</p>
         <p>Ürün Adı: {{ order.ürünAdı }}</p>
+        <p>Boyut: {{ order.boyut }}</p>
+        <p>Kişiselleştirme: {{ order.kişiselleştirme }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
-        <p>Telefon: {{ order.telefon }}</p>
-        <p>Email: {{ order.email }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
         <!-- hide the element from the user -->
         <p v-show="showing">{{ order.id }}</p>
