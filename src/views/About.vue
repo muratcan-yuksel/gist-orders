@@ -1,5 +1,15 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <DisplayOrder />
   </div>
 </template>
+
+<script>
+import DisplayOrder from "../components/DisplyOrder.vue";
+
+export default {
+  components: { DisplayOrder },
+};
+</script>
+
+<style></style>

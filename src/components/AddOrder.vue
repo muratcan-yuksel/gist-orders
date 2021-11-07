@@ -69,7 +69,7 @@ export default {
       mağazaAdı: "",
       ürünAdı: "",
       email: "",
-      tel: "",
+      tel: 0,
       adet: 0,
       not: "",
       display: true,

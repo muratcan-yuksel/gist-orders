@@ -8,7 +8,6 @@
 
 <script>
 import AddOrder from "../components/AddOrder.vue";
-// import DisplayOrder from "../components/DisplyOrder.vue";
 export default {
   components: { AddOrder },
 };
