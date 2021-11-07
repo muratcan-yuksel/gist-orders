@@ -6,6 +6,10 @@ import { firestorePlugin } from "vuefire";
 //import unique id generator
 import UniqueId from "vue-unique-id";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+//vue form
+import VueFormulate from "@braid/vue-formulate";
+
+Vue.use(VueFormulate);
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import "bootstrap/dist/css/bootstrap.css";

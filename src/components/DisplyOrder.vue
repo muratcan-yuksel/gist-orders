@@ -3,7 +3,7 @@
     <h1>Gist orders</h1>
     <!-- <p>{{ orders }}</p> -->
     <div v-for="order in orders" :key="order._uid">
-      <p>name : {{ order.name }} - id : {{ order.id }}</p>
+      <p>Mağaza : {{ order.name }} - id : {{ order.id }}</p>
     </div>
   </div>
 </template>
