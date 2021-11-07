@@ -91,6 +91,7 @@ export default {
           telefon: this.tel,
           ürünAdedi: this.adet,
           müşteriNotu: this.not,
+          siparişTarihi: new Date().toLocaleString(),
         });
         this.display = false;
       } else {

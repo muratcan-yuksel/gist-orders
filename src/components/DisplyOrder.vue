@@ -4,13 +4,15 @@
     <!-- <p>{{ orders }}</p> -->
     <div v-if="orders.length > 0">
       <div class="order" v-for="(order, index) in orders" :key="index">
-        <p>Mağaza adı : {{ order.mağazaAdı }} - id : {{ order.id }}</p>
+        <p>Mağaza adı : {{ order.mağazaAdı }}</p>
         <p>Ürün Adı: {{ order.ürünAdı }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
+        <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <p>Telefon: {{ order.telefon }}</p>
         <p>Email: {{ order.email }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
+        <!-- hide the element from the user -->
         <p v-show="showing">{{ order.id }}</p>
       </div>
     </div>
@@ -34,23 +36,21 @@ export default {
     };
   },
   firestore: {
-    orders: db.collection("orders"),
+    orders: db.collection("orders").orderBy("siparişTarihi", "desc"),
   },
   mounted() {
-    // db.collection("orders").doc("02gSeu4Uuvi7wYgVwsDi").update(
-    //   {
-    //     name: "name",
-    //   },
-    //   { merge: true }
-    // );
     // db.collection("orders").doc("12").set({ name: "namesdf" });
     // db.collection("orders").doc("12").delete();
     console.log("This component's unique id is: " + this.uid);
+    // console.log(new Date().toLocaleString());
   },
   methods: {
     handleDelete(e) {
+      //get the textcontent element next to the button
+      //which is its id in firestore
       console.log(e.target.nextElementSibling.textContent);
       // console.log(this.$parent);
+      //delete selected item from firebase and display at the same time
       db.collection("orders")
         .doc(e.target.nextElementSibling.textContent)
         .delete();
@@ -64,5 +64,7 @@ export default {
 }
 .order {
   border: 2px solid black;
+  background-color: rgb(235, 228, 228);
+  margin: 2em;
 }
 </style>
