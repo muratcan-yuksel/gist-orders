@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Gist orders</h1>
+    <h1>Siparişler</h1>
     <!-- <p>{{ orders }}</p> -->
     <div v-if="orders.length > 0">
       <div class="order" v-for="(order, index) in orders" :key="index">

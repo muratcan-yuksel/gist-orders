@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-if="display">
-      <h1>Add order</h1>
+      <h1 id="title">
+        Gist Leather Craft El Sanatları Atölyesi Sipariş Sistemi
+      </h1>
       <!-- mağazaAdı -->
       <FormulateInput
         type="text"
@@ -47,7 +49,7 @@
         >Siparişi Onayla</b-button
       >
     </div>
-    <div v-else>
+    <div class="success" v-else>
       <h2>
         Siparişiniz bize ulaşmıştır. En kısa zamanda verdiğiniz bilgilerle
         sizinle iletişime geçeceğiz.
@@ -101,3 +103,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+#title {
+  margin-left: 4em;
+  margin-right: 4em;
+}
+.success {
+  margin: 5em;
+}
+</style>
