@@ -11,7 +11,7 @@
         <p>Telefon: {{ order.telefon }}</p>
         <p>Email: {{ order.email }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
-        <p>{{ order.id }}</p>
+        <p v-show="showing">{{ order.id }}</p>
       </div>
     </div>
     <div v-else>
@@ -30,6 +30,7 @@ export default {
     return {
       orders: [],
       orderId: "",
+      showing: false,
     };
   },
   firestore: {
@@ -50,6 +51,9 @@ export default {
     handleDelete(e) {
       console.log(e.target.nextElementSibling.textContent);
       // console.log(this.$parent);
+      db.collection("orders")
+        .doc(e.target.nextElementSibling.textContent)
+        .delete();
     },
   },
 };
