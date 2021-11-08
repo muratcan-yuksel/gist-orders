@@ -17,9 +17,17 @@
         v-model="ürünAdı"
         validation="required"
       />
-      <h1>files</h1>
-      <input @change="handleChange" type="file" />
-      <input @change="handlePDF" type="file" />
+      <!-- dosya ekleme -->
+      <div class="inputFields">
+        <div class="inputs">
+          <h5>Ürün fotoğrafı</h5>
+          <input @change="handleChange" type="file" />
+        </div>
+        <div class="inputs">
+          <h5>Barkod</h5>
+          <input @change="handlePDF" type="file" />
+        </div>
+      </div>
 
       <!-- ürün rengi -->
       <div>
@@ -144,6 +152,13 @@ export default {
 #title {
   /* margin-left: 4em;
   margin-right: 4em; */
+}
+/* .inputFields {
+  display: flex;
+  justify-content: space-around;
+} */
+.inputs {
+  margin: 10px;
 }
 .success {
   margin: 5em;
