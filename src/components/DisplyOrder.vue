@@ -10,9 +10,6 @@
         <p>Kişiselleştirme: {{ order.kişiselleştirme }}</p>
         <p>Renk: {{ order.renk }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
-        <div class="productImageContainer">
-          <img class="productImage" :src="order.file" alt="" />
-        </div>
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
@@ -65,16 +62,6 @@ export default {
 <style scoped>
 .title {
   font-weight: 700;
-}
-.productImageContainer {
-  height: 250px;
-  width: 250px;
-  border: 1px solid black;
-}
-.productImage {
-  object-fit: fill;
-  height: 250px;
-  width: 250px;
 }
 .order {
   border: 2px solid black;

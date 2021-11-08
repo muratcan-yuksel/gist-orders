@@ -30,12 +30,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Login.vue"),
   },
-  {
-    path: "/upload",
-    name: "Upload",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Upload.vue"),
-  },
 ];
 
 const router = new VueRouter({

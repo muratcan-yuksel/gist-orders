@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Admin Panel</router-link>
-      <router-link to="/upload">upload</router-link> |
     </div>
     <router-view />
   </div>

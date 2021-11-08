@@ -8948,11 +8948,6 @@ vuefire@^2.2.5:
   dependencies:
     "@posva/vuefire-core" "^2.3.4"
 
-vuetify@^2.5.12:
-  version "2.5.12"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.5.12.tgz#d21f6d8ff4a654a3e90f40012ea61b53376adcf4"
-  integrity sha512-ruH2h2U0C8TzInzqTVE3QDcJr8+rJRXliyFN71972vtKqGWXXOUGkx7lfVqBIWNZCTEDcZGkaiV2apP+Bw3QTQ==
-
 vuex@^3.4.0:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.6.2.tgz#236bc086a870c3ae79946f107f16de59d5895e71"
