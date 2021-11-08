@@ -110,6 +110,11 @@ export default {
 .title {
   font-weight: 700;
 }
+.fileFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .fileContainer {
   height: 250px;
   width: 250px;
