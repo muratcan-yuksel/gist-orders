@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DisplayOrder from "../components/DisplyOrder.vue";
+import DisplayOrder from "../components/DisplayOrder.vue";
 
 export default {
   components: { DisplayOrder },
