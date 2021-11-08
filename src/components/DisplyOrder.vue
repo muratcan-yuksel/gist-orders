@@ -13,7 +13,7 @@
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <div class="fileContainer">
-          <img class="productImage" :src="order.file" :alt="order.file.name" />
+          <img class="productImage" :src="order.file" />
         </div>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
         <!-- hide the element from the user -->
@@ -28,8 +28,8 @@
 
 <script>
 //import firebase database
-import { db } from "../firebase/db";
-let regex = "/(?<=\o/\)(.*?)(?=\?)/";
+import { db, app } from "../firebase/db";
+
 // var regex = "/(?<=\o/)(.*?)(?=\])/" ;
 export default {
   name: "Home",
@@ -77,9 +77,29 @@ export default {
       //     // Some Error occurred
       //     console.log(error);
       //   });
-      console.log(
-        regex.exec(e.target.previousElementSibling.firstElementChild)
-      ); // Nth Element
+
+      //-------------------------
+      var fileUrl =
+        "https://firebasestorage.googleapis.com/b/bucket/o/images%20geeksforgeeks.jpg";
+
+      // Create a reference to the file to delete
+      var fileRef = app.refFromURL(fileUrl);
+
+      // Delete the file using the delete() method
+      fileRef
+        .delete()
+        .then(function () {
+          // File deleted successfully
+          console.log("File Deleted");
+        })
+        .catch(function (error) {
+          // Some Error occurred
+          console.log(error);
+        });
+
+      // console.log(
+      //   regex.exec(e.target.previousElementSibling.firstElementChild)
+      // ); // Nth Element
     },
   },
 };

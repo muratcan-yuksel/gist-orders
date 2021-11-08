@@ -82,6 +82,7 @@ export default {
       adet: 0,
       not: "",
       file: "",
+      fileName: "",
       boyut: "",
       kişiselleştirme: "",
       renk: "Renk",
@@ -95,6 +96,7 @@ export default {
       const fileRef = storageRef.child(file.name);
       await fileRef.put(file);
       this.file = await fileRef.getDownloadURL();
+      this.fileName = e.target.files[0].name;
     },
     handleInput() {
       if (this.mağazaAdı != "" && this.ürünAdı != "" && this.adet != 0) {
@@ -106,6 +108,7 @@ export default {
           kişiselleştirme: this.kişiselleştirme,
           müşteriNotu: this.not,
           file: this.file,
+          fileName: this.fileName,
           renk: this.renk,
           siparişTarihi: new Date().toLocaleString(),
           timeStamp: Date.now(),
