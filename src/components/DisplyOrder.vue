@@ -10,7 +10,7 @@
         <p>Kişiselleştirme: {{ order.kişiselleştirme }}</p>
         <p>Renk: {{ order.renk }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
-        <p>Img: {{ order.fileUrl }}</p>
+        <img :src="order.file" alt="" />
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>

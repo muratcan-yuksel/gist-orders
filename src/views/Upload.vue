@@ -8,16 +8,14 @@
 <script>
 import { app } from "../firebase/db";
 export default {
-  data() {
-    return { fileUrl: "" };
-  },
   methods: {
-    async handleChange(e) {
+    handleChange(e) {
       const file = e.target.files[0];
       const storageRef = app.ref();
       const fileRef = storageRef.child(file.name);
-      this.fileUrl = await fileRef.put(file);
-      console.log(this.fileUrl);
+      fileRef.put(file).then(() => {
+        console.log("uploaded", file.name);
+      });
     },
   },
 };

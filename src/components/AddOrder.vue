@@ -17,6 +17,8 @@
         v-model="ürünAdı"
         validation="required"
       />
+      <h1>files</h1>
+      <input @change="handleChange" type="file" />
       <!-- ürün rengi -->
       <div>
         <b-dropdown id="dropdown-1" :text="renk" class="m-md-2">
@@ -71,7 +73,7 @@
 </template>
 
 <script>
-import { db } from "../firebase/db";
+import { db, app } from "../firebase/db";
 
 export default {
   data() {
@@ -80,6 +82,7 @@ export default {
       ürünAdı: "",
       adet: 0,
       not: "",
+      file: "",
       boyut: "",
       kişiselleştirme: "",
       renk: "Renk",
@@ -87,6 +90,13 @@ export default {
     };
   },
   methods: {
+    async handleChange(e) {
+      const file = e.target.files[0];
+      const storageRef = app.ref();
+      const fileRef = storageRef.child(file.name);
+      await fileRef.put(file);
+      this.file = await fileRef.getDownloadURL();
+    },
     handleInput() {
       if (this.mağazaAdı != "" && this.ürünAdı != "" && this.adet != 0) {
         db.collection("orders").doc().set({
@@ -96,6 +106,7 @@ export default {
           boyut: this.boyut,
           kişiselleştirme: this.kişiselleştirme,
           müşteriNotu: this.not,
+          file: this.file,
           renk: this.renk,
           siparişTarihi: new Date().toLocaleString(),
           timeStamp: Date.now(),
