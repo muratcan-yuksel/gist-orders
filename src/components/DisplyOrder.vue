@@ -12,8 +12,15 @@
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
-        <div class="fileContainer">
-          <img class="productImage" :src="order.file" :alt="order.fileName" />
+        <div class="fileFlex">
+          <div class="fileContainer">
+            <img class="productImage" :src="order.file" :alt="order.fileName" />
+          </div>
+          <div class="pdfContainer">
+            <a :href="order.pdf" download :id="order.pdfName">
+              <p>Barkod</p>
+            </a>
+          </div>
         </div>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
         <!-- hide the element from the user -->
@@ -61,8 +68,9 @@ export default {
         .doc(e.target.nextElementSibling.textContent)
         .delete();
       // //-----storage delete
+      //delete image
       // // gs Bucket URL
-      var fileUrl = `gs://gist-orders.appspot.com/${e.target.previousElementSibling.firstElementChild.alt}`;
+      var fileUrl = `gs://gist-orders.appspot.com/${e.target.previousElementSibling.firstElementChild.firstElementChild.alt}`;
 
       // Create a reference to the file to delete
       var fileRef = app.refFromURL(fileUrl);
@@ -71,17 +79,29 @@ export default {
         .delete()
         .then(function () {
           // File deleted successfully
-          console.log("File Deleted");
+          console.log("image Deleted");
         })
         .catch(function (error) {
           // Some Error occurred
           console.log(error);
         });
 
-      // console.log(
-      //   regex.exec(e.target.previousElementSibling.firstElementChild)
-      // ); // Nth Element
-      // e.target.previousElementSibling.firstElementChild.alt;
+      //delete pdf
+      var pdfUrl = `gs://gist-orders.appspot.com/${e.target.previousElementSibling.lastElementChild.firstElementChild.id}`;
+
+      // Create a reference to the file to delete
+      var pdfRef = app.refFromURL(pdfUrl);
+      // Delete the file using the delete() method
+      pdfRef
+        .delete()
+        .then(function () {
+          // File deleted successfully
+          console.log("pdf Deleted");
+        })
+        .catch(function (error) {
+          // Some Error occurred
+          console.log(error);
+        });
     },
   },
 };
@@ -94,6 +114,13 @@ export default {
   height: 250px;
   width: 250px;
   border: 1px solid black;
+}
+.pdfContainer {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+  font-weight: 700;
 }
 .productImage {
   object-fit: fill;

@@ -19,6 +19,8 @@
       />
       <h1>files</h1>
       <input @change="handleChange" type="file" />
+      <input @change="handlePDF" type="file" />
+
       <!-- ürün rengi -->
       <div>
         <b-dropdown id="dropdown-1" :text="renk" class="m-md-2">
@@ -83,6 +85,8 @@ export default {
       not: "",
       file: "",
       fileName: "",
+      pdf: "",
+      pdfName: "",
       boyut: "",
       kişiselleştirme: "",
       renk: "Renk",
@@ -98,6 +102,15 @@ export default {
       this.file = await fileRef.getDownloadURL();
       this.fileName = e.target.files[0].name;
     },
+
+    async handlePDF(e) {
+      const file = e.target.files[0];
+      const storageRef = app.ref();
+      const fileRef = storageRef.child(file.name);
+      await fileRef.put(file);
+      this.pdf = await fileRef.getDownloadURL();
+      this.pdfName = e.target.files[0].name;
+    },
     handleInput() {
       if (this.mağazaAdı != "" && this.ürünAdı != "" && this.adet != 0) {
         db.collection("orders").doc().set({
@@ -109,6 +122,8 @@ export default {
           müşteriNotu: this.not,
           file: this.file,
           fileName: this.fileName,
+          pdf: this.pdf,
+          pdfName: this.pdfName,
           renk: this.renk,
           siparişTarihi: new Date().toLocaleString(),
           timeStamp: Date.now(),
