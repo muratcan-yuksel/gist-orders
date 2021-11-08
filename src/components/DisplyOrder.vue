@@ -13,7 +13,7 @@
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <div class="fileContainer">
-          <img class="productImage" :src="order.file" />
+          <img class="productImage" :src="order.file" :alt="order.fileName" />
         </div>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
         <!-- hide the element from the user -->
@@ -62,29 +62,10 @@ export default {
         .delete();
       // //-----storage delete
       // // gs Bucket URL
-      // var fileUrl = "gs://gist-orders.appspot.com/background.jpg";
-
-      // // Create a reference to the file to delete
-      // var fileRef = app.refFromURL(fileUrl);
-      // // Delete the file using the delete() method
-      // fileRef
-      //   .delete()
-      //   .then(function () {
-      //     // File deleted successfully
-      //     console.log("File Deleted");
-      //   })
-      //   .catch(function (error) {
-      //     // Some Error occurred
-      //     console.log(error);
-      //   });
-
-      //-------------------------
-      var fileUrl =
-        "https://firebasestorage.googleapis.com/b/bucket/o/images%20geeksforgeeks.jpg";
+      var fileUrl = `gs://gist-orders.appspot.com/${e.target.previousElementSibling.firstElementChild.alt}`;
 
       // Create a reference to the file to delete
       var fileRef = app.refFromURL(fileUrl);
-
       // Delete the file using the delete() method
       fileRef
         .delete()
@@ -100,6 +81,7 @@ export default {
       // console.log(
       //   regex.exec(e.target.previousElementSibling.firstElementChild)
       // ); // Nth Element
+      // e.target.previousElementSibling.firstElementChild.alt;
     },
   },
 };
