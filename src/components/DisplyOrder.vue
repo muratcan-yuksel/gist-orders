@@ -10,6 +10,9 @@
         <p>Kişiselleştirme: {{ order.kişiselleştirme }}</p>
         <p>Renk: {{ order.renk }}</p>
         <p>Ürün Adedi: {{ order.ürünAdedi }}</p>
+        <div class="productImageContainer">
+          <img class="productImage" :src="order.file" alt="" />
+        </div>
         <p>Siparişin verildiği tarih: {{ order.siparişTarihi }}</p>
         <p>Müşteri Notu: {{ order.müşteriNotu }}</p>
         <b-button @click="handleDelete" variant="danger">Siparişi Sil</b-button>
@@ -25,7 +28,13 @@
 
 <script>
 //import firebase database
-import { db } from "../firebase/db";
+import { db, app } from "../firebase/db";
+// gs Bucket URL
+var fileUrl = "gs://gist-orders.appspot.com/one.jpg";
+
+// Create a reference to the file to delete
+var fileRef = app.refFromURL(fileUrl);
+
 export default {
   name: "Home",
   components: {},
@@ -44,6 +53,17 @@ export default {
     // db.collection("orders").doc("12").delete();
     console.log("This component's unique id is: " + this.uid);
     // console.log(new Date().toLocaleString());
+    // Delete the file using the delete() method
+    fileRef
+      .delete()
+      .then(function () {
+        // File deleted successfully
+        console.log("File Deleted");
+      })
+      .catch(function (error) {
+        // Some Error occurred
+        console.log(error);
+      });
   },
   methods: {
     handleDelete(e) {
@@ -62,6 +82,16 @@ export default {
 <style scoped>
 .title {
   font-weight: 700;
+}
+.productImageContainer {
+  height: 250px;
+  width: 250px;
+  border: 1px solid black;
+}
+.productImage {
+  object-fit: fill;
+  height: 250px;
+  width: 250px;
 }
 .order {
   border: 2px solid black;
