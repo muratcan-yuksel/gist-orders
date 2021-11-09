@@ -22,7 +22,6 @@ export default {};
   width: 100%;
   background-color: black;
   color: white;
-  opacity: 70%;
 }
 #footerPara {
   margin: 0.5em;
