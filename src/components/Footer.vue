@@ -16,7 +16,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style>
 #footerComponent {
   height: 3em;
   width: 100%;
