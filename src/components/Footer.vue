@@ -20,7 +20,7 @@ export default {};
 #footerComponent {
   height: 3em;
   width: 100%;
-  background-color: black;
+  background-color: rgb(32, 32, 32);
   color: white;
 }
 #footerPara {
