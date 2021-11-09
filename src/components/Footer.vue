@@ -26,10 +26,12 @@ export default {};
 }
 #footerPara {
   margin: 0.5em;
-  padding: 0.5em;
+  padding: 0.7em;
+  font-size: 0.9em;
 }
 #myLink {
   text-decoration: none;
   color: white;
+  border-bottom: 1px groove white;
 }
 </style>
