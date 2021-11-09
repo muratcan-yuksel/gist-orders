@@ -68,6 +68,7 @@ export default {
         .doc(e.target.nextElementSibling.textContent)
         .delete();
       // //-----storage delete
+      //this part is to delete from the cloud storage
       //delete image
       // // gs Bucket URL
       var fileUrl = `gs://gist-orders.appspot.com/${e.target.previousElementSibling.firstElementChild.firstElementChild.alt}`;

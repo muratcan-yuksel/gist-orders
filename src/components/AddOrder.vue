@@ -101,6 +101,7 @@ export default {
       display: true,
     };
   },
+  //these two async methods are to get the downloadable url and the name of the cloud storage items
   methods: {
     async handleChange(e) {
       const file = e.target.files[0];
