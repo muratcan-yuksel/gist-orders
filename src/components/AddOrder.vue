@@ -13,7 +13,7 @@
       <!-- ürünAdı -->
       <FormulateInput
         type="text"
-        label="Sipariş edilecek ürün"
+        label="Ürün Stok Kodu"
         v-model="ürünAdı"
         validation="required"
       />
@@ -32,8 +32,10 @@
       <!-- ürün rengi -->
       <div>
         <b-dropdown id="dropdown-1" :text="renk" class="m-md-2">
-          <b-dropdown-item @click="handleColor">Brown</b-dropdown-item>
-          <b-dropdown-item @click="handleColor">Dark Brown</b-dropdown-item>
+          <b-dropdown-item @click="handleColor">Vidala Brown</b-dropdown-item>
+          <b-dropdown-item @click="handleColor"
+            >Vidala Dark Brown</b-dropdown-item
+          >
           <b-dropdown-item @click="handleColor">Grey</b-dropdown-item>
           <b-dropdown-item @click="handleColor">Black</b-dropdown-item>
           <b-dropdown-item @click="handleColor">Crazy Brown</b-dropdown-item>
