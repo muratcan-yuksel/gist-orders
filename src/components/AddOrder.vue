@@ -36,7 +36,6 @@
           <b-dropdown-item @click="handleColor"
             >Vidala Dark Brown</b-dropdown-item
           >
-          <b-dropdown-item @click="handleColor">Grey</b-dropdown-item>
           <b-dropdown-item @click="handleColor">Black</b-dropdown-item>
           <b-dropdown-item @click="handleColor">Crazy Brown</b-dropdown-item>
           <b-dropdown-item @click="handleColor"
