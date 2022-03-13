@@ -25,7 +25,7 @@
         </div>
         <div class="inputs">
           <h5>Barkod</h5>
-          <input @change="handlePDF" type="file" />
+          <input @change="handlePDF" type="file" accept="application/pdf" />
         </div>
       </div>
 
